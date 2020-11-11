@@ -1,37 +1,29 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+    <ion-toolbar>
 
-      <ion-buttons slot="start">
-          <ion-icon (click)="openMenu()" style="font-size: 30px;" name="information-circle"></ion-icon>
-      </ion-buttons>
-
-
-    <ion-title color="primary">Quédate en Casa Teziutlán</ion-title>
-  </ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-icon (click)="openMenu()" style="font-size: 30px;" name="information-circle"></ion-icon>
+        </ion-buttons>
+        <ion-title color="primary">Quédate en Casa Teziutlán</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
-  <center>
-    <img src="/assets/quedate_logo.png">
-  </center>
-  <ion-card>
-    <ion-card-content>
-      Quédate en casa Teziutlán es una plataforma de comunicación virtual para que Tú, Yo, Nosotros y todos los Teziutecos aportemos a
-        nuestras familias y amigos, mensajes de aliento, tips, consejos y ayuda, para lograr superar día a día la pandemia mundial
-        del Coronavirus (COVID-19) que nos ha tocado vivir.
-    </ion-card-content>
-  </ion-card>
-
-
+            <img src="/assets/quedate_logo.png">
+            <ion-card>
+                <ion-card-content>
+                    Quédate en casa Teziutlán es una plataforma de comunicación virtual para que Tú, Yo, Nosotros y todos los Teziutecos aportemos a nuestras familias y amigos, mensajes de aliento, tips, consejos y ayuda, para lograr superar día a día la pandemia mundial
+                    del Coronavirus (COVID-19) que nos ha tocado vivir.
+                </ion-card-content>
+            </ion-card>
     <ion-tabs>
         <ion-tab-bar slot="bottom">
-            <ion-tab-button  href="/inicio" color="primary">
+            <ion-tab-button href="/inicio" color="primary">
                 <ion-icon name="home"></ion-icon>
                 <ion-label>Main</ion-label>
                 <ion-badge>6</ion-badge>
             </ion-tab-button>
-
 
             <ion-tab-button href="/perfil" color="success">
                 <ion-icon name="person"></ion-icon>
@@ -43,15 +35,15 @@
                 <ion-label>About</ion-label>
             </ion-tab-button>
 
-            <ion-tab-button  href="/publicacion" color="danger">
+            <ion-tab-button href="/publicacion" color="danger">
                 <ion-icon name="share"></ion-icon>
                 <ion-label>Publicaciones</ion-label>
             </ion-tab-button>
         </ion-tab-bar>
     </ion-tabs>
-
-
 </ion-content>
+
+
 
 
 

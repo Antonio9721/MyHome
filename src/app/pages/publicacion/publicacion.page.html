@@ -1,71 +1,68 @@
 <ion-header titulo="Publicaciones">
-  <ion-toolbar>
+    <ion-toolbar>
 
-    <ion-button slot="start">
-      <ion-back-button defaultHref="/home">
-      </ion-back-button>
-    </ion-button>
+        <ion-button slot="start">
+            <ion-back-button defaultHref="/about">
+            </ion-back-button>
+        </ion-button>
 
-    <ion-title color="primary">Publicaciones</ion-title>
-  </ion-toolbar>
+        <ion-title color="primary">Publicaciones</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <center>
-  <img src="/assets/quedate_logo.png">
-  </center>
-  <ion-card>
-    <ion-card-header>
-      <ion-item>
-        <ion-avatar slot="start">
-          <img src="/assets/Casa.jpg">
-        </ion-avatar>
-        <center>
-        <ion-label>Crear Publicación</ion-label>
-        </center>
-      </ion-item>
-    </ion-card-header>
 
-    <ion-card-content>
-      <center>
-      <!-- Icons -->
-      <ion-button color="success">
-        <ion-icon slot="start" name="videocam"></ion-icon>
-        Foto/video
-      </ion-button>
+    <ion-grid>
+        <ion-col>
+            <img src="/assets/quedate_logo.png">
+        </ion-col>
+    </ion-grid>
 
-      <ion-button color="primary">
-        Estoy aquí
-        <ion-icon slot="end" name="location"></ion-icon>
-      </ion-button>
 
-      <ion-button color="danger">
-        Buscar amigos
-        <ion-icon slot="icon-only" name="people"></ion-icon>
-      </ion-button>
-      </center>
-    </ion-card-content>
-  </ion-card>
+    <ion-card>
+        <ion-card-header>
+            <center>
+                <ion-button href="/inicio" color="medium">
+                    <ion-icon slot="start" name="share"></ion-icon>
+                    Crear Publicación
+                </ion-button>
+            </center>
 
-<ion-label>PUBLICACIÓN FIJADA</ion-label>
+        </ion-card-header>
 
-  <ion-card>
-    <ion-item>
-      <ion-item>
-        <ion-avatar slot="start">
-          <img src="/assets/Home.png">
-        </ion-avatar>
-      </ion-item>
-      <ion-label>Quédate en casa Teziutlán</ion-label>
-    </ion-item>
+        <ion-card-content>
+            <center>
+                <!-- Icons -->
+                <ion-button href="/fotos" color="success">
+                    <ion-icon slot="start" name="videocam"></ion-icon>
+                    Foto/video
+                </ion-button>
 
-    <ion-card-content>
-      Quédate en casa Teziutlán es una plataforma de comunicación virtual para que Tú, Yo, Nosotros y todos los Teziutecos aportemos a nuestras familias y amigos, mensajes de aliento, tips, consejos y ayuda, para lograr superar día a día la pandemia mundial del Coronavirus (COVID-19) que nos ha tocado vivir.
-      Servirá como testimonio para la posteridad y será el orgullo de nuestros descendientes para que sepan que sus ancestros rebasaron la adversidad y lograron ayudarse unos con otros.
-      Quedarse en casa no es estar solos o aislados, es tener la certeza de que alguien nos escucha y empatiza con nosotros.
-      #quédateencasaTeziutlán #MemoriaColectiva #COVID19
-    </ion-card-content>
-  </ion-card>
+                <ion-button href="/fotos" color="primary">
+                    Estoy aquí
+                    <ion-icon slot="end" name="location"></ion-icon>
+                </ion-button>
+
+                <ion-button href="/fotos" color="danger">
+                    Buscar amigos
+                    <ion-icon slot="icon-only" name="people"></ion-icon>
+                </ion-button>
+            </center>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-grid>
+        <ion-col *ngFor="let noticia of noticias">
+            <ion-card color="dark">
+                <ion-card-header>
+                    <ion-card-subtitle>{{noticia.source.name}}</ion-card-subtitle>
+                    <ion-card-title>{{ noticia.title}}</ion-card-title>
+                    <ion-card-subtitle>{{noticia.author}}</ion-card-subtitle>
+                </ion-card-header>
+                <ion-img *ngIf="noticia.urlToImage" [src]="noticia.urlToImage"></ion-img>
+            </ion-card>
+        </ion-col>
+    </ion-grid>
 
 
 </ion-content>
