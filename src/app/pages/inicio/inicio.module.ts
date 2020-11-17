@@ -1,19 +1,21 @@
+import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { IonicModule } from '@ionic/angular';
-
-import { InicioPageRoutingModule } from './inicio-routing.module';
-
-import { InicioPage } from './inicio.page';
+import { ComponentsModule } from '../../components/components.module';
+import { RouterModule } from '@angular/router';
+import {InicioPageRoutingModule} from './inicio-routing.module';
+import {InicioPage} from './inicio.page';
 
 @NgModule({
   imports: [
+    IonicModule,
     CommonModule,
     FormsModule,
-    IonicModule,
-    InicioPageRoutingModule
+    InicioPageRoutingModule,
+    ComponentsModule,
+    RouterModule.forChild([{path: '', component: InicioPage}])
   ],
   declarations: [InicioPage]
 })

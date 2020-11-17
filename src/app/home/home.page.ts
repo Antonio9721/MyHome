@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import {MenuController} from '@ionic/angular';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +10,7 @@ import {MenuController} from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor( public router: Router, private menu: MenuController) { }
+  constructor(private auth: AuthService, private router: Router,  private menu: MenuController) { }
   goToPage( page ){
    this.router.navigate([ page ]);
   }
@@ -18,4 +18,8 @@ export class HomePage {
     this.menu.open();
   }
 
+    logout() {
+      this.auth.logout();
+      this.router.navigateByUrl('/login');
+    }
 }

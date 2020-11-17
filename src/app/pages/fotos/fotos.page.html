@@ -1,19 +1,23 @@
-<ion-header titulo="Fotos">
-    <ion-toolbar>
+<ion-header titulo="Inicio">
+  <ion-toolbar>
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/about">
+      </ion-back-button>
+    </ion-button>
 
-        <ion-button slot="start">
-            <ion-back-button defaultHref="/about">
-            </ion-back-button>
-        </ion-button>
-
-
-        <ion-title color="primary">Fotos</ion-title>
-    </ion-toolbar>
+    <ion-title color="primary">Fotos</ion-title>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content>
-    <center>
-        <img src="/assets/quedate_logo.png">
-    </center>
+<ion-content color="light">
 
+  <app-posts [posts]="posts"></app-posts>
+  <ion-infinite-scroll [disabled]="!habilitar" threshold="150px" (ionInfinite)="nextPost($event)">
+    <ion-infinite-scroll-content>
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <ion-refresher slot="fixed" (ionRefresh)="refreshPost($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 </ion-content>

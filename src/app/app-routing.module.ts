@@ -8,10 +8,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'inicio',
-    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
-  },
-  {
     path: 'informacion',
     loadChildren: () => import('./pages/informacion/informacion.module').then( m => m.InformacionPageModule)
   },
@@ -22,10 +18,6 @@ const routes: Routes = [
   {
     path: 'publicacion',
     loadChildren: () => import('./pages/publicacion/publicacion.module').then( m => m.PublicacionPageModule)
-  },
-  {
-    path: 'fotos',
-    loadChildren: () => import('./pages/fotos/fotos.module').then( m => m.FotosPageModule)
   },
   {
     path: 'comunidad',
@@ -46,6 +38,22 @@ const routes: Routes = [
   {
     path: 'splash',
     loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
+  },
+  {
+    path: 'inicio',
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+  },
+  {
+    path: 'fotos',
+    loadChildren: () => import('./pages/fotos/fotos.module').then(m => m.FotosPageModule)
+  },
+  {
+    path: 'tabs',
+    loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
   },
 ];
 

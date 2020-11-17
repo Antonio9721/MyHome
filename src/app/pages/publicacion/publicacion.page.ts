@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { NoticiasService } from '../../services/noticias.service';
-import { Article } from '../interfaces/Interfaces';
-
+import {PostsService} from '../../services/posts.service';
 
 interface Componente {
   icon: string;
   name: string;
   redirecTo: string;
 }
+
 
 @Component({
   selector: 'app-publicacion',
@@ -16,19 +15,38 @@ interface Componente {
 })
 
 export class PublicacionPage implements OnInit {
-  noticias: Article[] = [];
-    constructor(private noticiasService: NoticiasService) {
-    }
+  constructor(private postsService: PostsService) {}
 
+  posts: any = [];
 
+  habilitar = true;
 
   ngOnInit() {
-    this.noticiasService.getTopHeadLines().subscribe(
-      resp => {console.log('noticias', resp);
-               this.noticias.push(...resp.articles);
-    
+    this.nextPost();
   }
-    );
-}
+
+  refreshPost(event){
+    this.nextPost(event, true);
+  }
+
+  nextPost( event?, pull: boolean = false ){
+    if (pull){
+      this.habilitar = true;
+      this.posts = [];
+    }
+    this.postsService.getPosts(pull)
+        .subscribe((resultado: any) => {
+          console.log(resultado);
+          this.posts = resultado;
+
+          if (event) {
+            event.target.complete();
+
+            if ( resultado.length === 0 ){
+              this.habilitar = false;
+            }
+          }
+        });
+  }
 
 }

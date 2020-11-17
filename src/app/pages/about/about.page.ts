@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NoticiasService } from '../../services/noticias.service';
-import { Article } from '../interfaces/Interfaces';
 
 
 interface Componente {
@@ -15,9 +13,6 @@ interface Componente {
   styleUrls: ['./about.page.scss'],
 })
 export class AboutPage implements OnInit {
-  noticias: Article[] = [];
-    constructor(private noticiasService: NoticiasService) {
-    }
 
     componentes: Componente[] = [
 
@@ -49,11 +44,6 @@ export class AboutPage implements OnInit {
     ];
 
   ngOnInit() {
-    this.noticiasService.getTopHeadLines().subscribe(
-      resp => {console.log('noticias', resp);
-               this.noticias.push(...resp.articles);
-  }
-    );
 }
 
 }

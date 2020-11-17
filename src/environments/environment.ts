@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiKey : 'd09124ffdc9f4ebb9eb9cd36089e2544',
+  url: 'http://quedateencasateziutlan.org.mx/wp-json'
 };
 
 /*

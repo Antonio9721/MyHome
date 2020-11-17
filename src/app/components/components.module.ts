@@ -1,23 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
+import { PostComponent } from './post/post.component';
+import { PostsComponent } from './posts/posts.component';
 import { IonicModule } from '@ionic/angular';
-import { MenuComponent } from './menu/menu.component';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 
 @NgModule({
   declarations: [
-    HeaderComponent,
-      MenuComponent
+    PostComponent,
+    PostsComponent
   ],
   exports: [
-    HeaderComponent,
-      MenuComponent
+    PostsComponent
   ],
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
+    PipesModule
   ]
 })
 export class ComponentsModule { }
